@@ -9,6 +9,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import MyRepos from "./components/MyRepos";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
+import RepoDetails from "./components/RepoDetails";
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -45,6 +46,11 @@ function App() {
                 <Route path="/repositories" element={<MyRepos />} />
               </Routes>
             </Col>
+          </Row>
+          <Row>
+            <Routes>
+              <Route path="/" element={<RepoDetails />} />
+            </Routes>
           </Row>
         </Container>
 
