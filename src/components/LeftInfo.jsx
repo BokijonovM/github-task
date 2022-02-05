@@ -31,8 +31,27 @@ function LeftInfo() {
             Edit profile
           </Button>
           <p className="py-2 text-light">
-            <i class="bi bi-people-fill"></i> 8 Followers
-            <i class="bi bi-dot"></i>8 Following
+            <i class="bi bi-people-fill"></i> {userInfo.followers} Followers
+            <i class="bi bi-dot"></i>
+            {userInfo.following} Following
+          </p>
+          <p className="mb-0 text-light">
+            <i class="bi bi-geo-alt"></i> {userInfo.location}
+          </p>
+          <p className="mb-0 text-light">
+            <i class="bi bi-link-45deg"></i>{" "}
+            <a className="text-light" href={userInfo.blog}>
+              {userInfo.blog}
+            </a>
+          </p>
+          <p className="mb-0 text-light">
+            <i class="bi bi-twitter"></i>{" "}
+            <a
+              className="text-light"
+              href={"https://www.twitter.com/" + userInfo.twitter_username}
+            >
+              {"@" + userInfo.twitter_username}
+            </a>
           </p>
         </div>
       </div>
