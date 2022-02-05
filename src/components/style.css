@@ -59,7 +59,7 @@
   align-items: center;
   margin-bottom: -20px;
   text-decoration: none;
-  margin-left: -160px;
+  margin-left: -110px;
 }
 .or-texts-1st-p:hover {
   color: rgb(168, 168, 168) !important;
@@ -71,6 +71,11 @@
   font-size: 14px;
   margin-left: 10px;
   text-decoration: none;
+}
+.repos-badge {
+  background-color: rgb(70, 70, 70) !important;
+  border-radius: 99px;
+  color: white;
 }
 /* Left sidebar */
 .leftInfo-main-div {

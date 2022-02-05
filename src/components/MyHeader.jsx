@@ -1,6 +1,7 @@
 import React from "react";
+import { Badge } from "react-bootstrap";
 
-function MyHeader() {
+function MyHeader({ userInfo }) {
   return (
     <div>
       <div className="main-header-main-div">
@@ -11,6 +12,9 @@ function MyHeader() {
         <a href="/repositories" className="or-texts-1st-p ml-5">
           <i class="bi bi-journal-bookmark-fill"></i>
           <span>Repositories</span>
+          <Badge className="px-2 repos-badge ml-1">
+            {userInfo.public_repos}
+          </Badge>
         </a>
       </div>
     </div>
