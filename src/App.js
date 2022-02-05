@@ -14,10 +14,16 @@ function App() {
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      let res = await fetch("https://api.github.com/users/bokijonovm");
-      if (res.ok) {
-        let data = await res.json();
-        setUserInfo(data);
+      try {
+        let res = await fetch("https://api.github.com/users/bokijonovm");
+        if (res.ok) {
+          let data = await res.json();
+          setUserInfo(data);
+        } else {
+          console.log("Fetch user data failed!");
+        }
+      } catch (error) {
+        console.log(error);
       }
     };
     fetchData();
@@ -26,7 +32,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <MyNavbar userInfo={userInfo} />
-        <MyHeader />
+        <MyHeader userInfo={userInfo} />
 
         <Container>
           <Row>
