@@ -16,7 +16,7 @@ function MyNavbar() {
             <Form.Control
               size="sm"
               type="text"
-              className="search-or-jump shadow-none border-0"
+              className="search-or-jump shadow-none"
               placeholder="Search or jump to..."
             />
           </Form.Group>
