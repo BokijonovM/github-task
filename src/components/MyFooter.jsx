@@ -4,7 +4,7 @@ import "./style.css";
 function MyFooter() {
   return (
     <div>
-      <div className="main-footer-div">
+      <div className="main-footer-div px-3 mt-3">
         <h5 className="mb-0">
           Created By{" "}
           <a href="https://www.linkedin.com/in/bokijonov/">

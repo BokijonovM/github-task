@@ -1,14 +1,34 @@
 .main-footer-div {
   width: 100%;
   height: 80px;
-  background-color: rgb(197, 197, 197);
+  background-color: #0d1117;
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
 }
 .navbar-nav-1 {
-  background-color: rgb(197, 197, 197);
+  background-color: #0d1117;
   width: 100%;
-  height: 80px;
+  height: 70px;
+}
+.search-or-jump {
+  padding-right: 100px;
+}
+.pmie-texts-nav {
+  color: white;
+  font-weight: bold;
+}
+.bi-bell-navbar,
+.bi-plus-lg-navbar {
+  color: white;
+  font-size: 20px;
+}
+.bi-caret-down-fill {
+  color: white;
+}
+.user-img-navbar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
 }
