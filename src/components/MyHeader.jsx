@@ -8,7 +8,7 @@ function MyHeader() {
           <i class="bi bi-book"></i>
           <span>Overview</span>
         </a>
-        <a href="/" className="or-texts-1st-p ml-5">
+        <a href="/repositories" className="or-texts-1st-p ml-5">
           <i class="bi bi-journal-bookmark-fill"></i>
           <span>Repositories</span>
         </a>

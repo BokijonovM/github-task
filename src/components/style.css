@@ -92,3 +92,10 @@
   align-items: flex-start;
   margin-left: 30px;
 }
+/* repos */
+
+.repos-main-div {
+  width: 100%;
+  height: 100vh;
+  background-color: #0d1117;
+}

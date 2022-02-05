@@ -1,9 +1,8 @@
 import React from "react";
 import { Nav, Navbar, Form } from "react-bootstrap";
 import Logo from "./assets/github.svg";
-import Logo1 from "./assets/mLogo.png";
 
-function MyNavbar() {
+function MyNavbar({ userInfo }) {
   return (
     <div>
       <Navbar className="navbar-nav-1" expand="lg">
@@ -42,7 +41,11 @@ function MyNavbar() {
               <i class="bi bi-caret-down-fill"></i>
             </div>
             <div className="d-flex align-items-center mr-3">
-              <img className="user-img-navbar" src={Logo1} alt="img-logo" />
+              <img
+                className="user-img-navbar"
+                src={userInfo.avatar_url}
+                alt="img-logo"
+              />
               <i class="bi bi-caret-down-fill"></i>
             </div>
           </Nav>

@@ -5,24 +5,46 @@ import MyFooter from "./components/MyFooter";
 import MyMain from "./components/MyMain";
 import MyHeader from "./components/MyHeader";
 import LeftInfo from "./components/LeftInfo";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
+import MyRepos from "./components/MyRepos";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [userInfo, setUserInfo] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      let res = await fetch("https://api.github.com/users/bokijonovm");
+      if (res.ok) {
+        let data = await res.json();
+        setUserInfo(data);
+      }
+    };
+    fetchData();
+  }, []);
   return (
-    <div className="App">
-      <MyNavbar />
-      <MyHeader />
+    <BrowserRouter>
+      <div className="App">
+        <MyNavbar userInfo={userInfo} />
+        <MyHeader />
 
-      <Row>
-        <Col md={4}>
-          <LeftInfo />
-        </Col>
-        <Col md={8}></Col>
-      </Row>
+        <Container>
+          <Row>
+            <Col className="p-0" md={4}>
+              <LeftInfo userInfo={userInfo} />
+            </Col>
+            <Col className="p-0" md={8}>
+              <Routes>
+                <Route path="/" element={<MyMain />} />
+                <Route path="/repositories" element={<MyRepos />} />
+              </Routes>
+            </Col>
+          </Row>
+        </Container>
 
-      <MyMain />
-      <MyFooter />
-    </div>
+        <MyFooter />
+      </div>
+    </BrowserRouter>
   );
 }
 
