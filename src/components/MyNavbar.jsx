@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar, Form } from "react-bootstrap";
 import Logo from "./assets/github.svg";
-import Logo1 from "./assets/mLogo.png";
+import Logo1 from "./assets/user.jpg";
 
 function MyNavbar() {
   return (

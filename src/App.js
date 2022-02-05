@@ -5,24 +5,34 @@ import MyFooter from "./components/MyFooter";
 import MyMain from "./components/MyMain";
 import MyHeader from "./components/MyHeader";
 import LeftInfo from "./components/LeftInfo";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
+import MyRepos from "./components/MyRepos";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <MyNavbar />
-      <MyHeader />
+    <BrowserRouter>
+      <div className="App">
+        <MyNavbar />
+        <MyHeader />
 
-      <Row>
-        <Col md={4}>
-          <LeftInfo />
-        </Col>
-        <Col md={8}></Col>
-      </Row>
+        <Container>
+          <Row>
+            <Col className="p-0" md={4}>
+              <LeftInfo />
+            </Col>
+            <Col className="p-0" md={8}>
+              <Routes>
+                <Route path="/" element={<MyMain />} />
+                <Route path="/repositories" element={<MyRepos />} />
+              </Routes>
+            </Col>
+          </Row>
+        </Container>
 
-      <MyMain />
-      <MyFooter />
-    </div>
+        <MyFooter />
+      </div>
+    </BrowserRouter>
   );
 }
 
