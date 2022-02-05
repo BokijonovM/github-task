@@ -8,18 +8,30 @@ import LeftInfo from "./components/LeftInfo";
 import { Row, Col, Container } from "react-bootstrap";
 import MyRepos from "./components/MyRepos";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [userInfo, setUserInfo] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      let res = await fetch("https://api.github.com/users/bokijonovm");
+      if (res.ok) {
+        let data = await res.json();
+        setUserInfo(data);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <BrowserRouter>
       <div className="App">
-        <MyNavbar />
+        <MyNavbar userInfo={userInfo} />
         <MyHeader />
 
         <Container>
           <Row>
             <Col className="p-0" md={4}>
-              <LeftInfo />
+              <LeftInfo userInfo={userInfo} />
             </Col>
             <Col className="p-0" md={8}>
               <Routes>

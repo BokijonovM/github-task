@@ -1,20 +1,7 @@
-import React, { useEffect, useState } from "react";
-import logoUser from "./assets/user.jpg";
+import React from "react";
 import { Button } from "react-bootstrap";
 
-function LeftInfo() {
-  const [userInfo, setUserInfo] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      let res = await fetch("https://api.github.com/users/bokijonovm");
-      if (res.ok) {
-        let data = await res.json();
-        console.log(data);
-        setUserInfo(data);
-      }
-    };
-    fetchData();
-  }, []);
+function LeftInfo({ userInfo }) {
   return (
     <div className="leftInfo-main-div">
       <div>
