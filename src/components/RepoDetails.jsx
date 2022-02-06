@@ -9,6 +9,7 @@ function RepoDetails({ userInfo }) {
 
   const [repoDetails, setRepoDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [languagesUsed, setLanguagesUsed] = useState([]);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -27,8 +28,41 @@ function RepoDetails({ userInfo }) {
         console.log(error);
       }
     };
+    const fetchLanguagesUsed = async () => {
+      try {
+        let res = await fetch(
+          "https://api.github.com/repos/BokijonovM/" +
+            params.name +
+            "/languages"
+        );
+        if (res.ok) {
+          let data = await res.json();
+          setLanguagesUsed(data);
+        } else {
+          console.log("Fetch details error!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchDetails();
+    fetchLanguagesUsed();
   }, []);
+
+  const dataLan =
+    languagesUsed.CSS + languagesUsed.HTML + languagesUsed.JavaScript;
+
+  function round(num, decimalPlaces = 0) {
+    num = Math.round(num + "e" + decimalPlaces);
+    return Number(num + "e" + -decimalPlaces);
+  }
+  const color1 = "#f1e05a";
+  const color2 = "#563d7c";
+  const color3 = "#e34c26";
+
+  const javaScriptLan = round((languagesUsed.JavaScript / dataLan) * 100, 2);
+  const cssLanguagePer = round((languagesUsed.CSS / dataLan) * 100, 2);
+  const htmlLanguage = round((languagesUsed.HTML / dataLan) * 100, 2);
 
   return (
     <div>
@@ -53,16 +87,16 @@ function RepoDetails({ userInfo }) {
           </div>
           <div className="d-flex align-items-center">
             <p className="repo-details-ufs-header-right mb-0 px-2 py-1">
-              <i class=" pr-1 bi bi-eye"></i>
+              <i className="pr-1 bi bi-eye"></i>
               Unwatch
               <Badge className="repos-public-badge ml-2">
                 {repoDetails.watchers}
               </Badge>
-              <i class=" pl-1 bi bi-caret-down-fill"></i>
+              <i className=" pl-1 bi bi-caret-down-fill"></i>
             </p>
 
             <p className="repo-details-ufs-header-right-fork mb-0 px-2 py-1 ml-2">
-              <i class=" pr-1 bi bi-git"></i>
+              <i className=" pr-1 bi bi-git"></i>
               Fork
               <Badge className="repos-public-badge ml-2">
                 {" "}
@@ -71,42 +105,45 @@ function RepoDetails({ userInfo }) {
             </p>
 
             <p className="repo-details-ufs-header-right mb-0 px-2 py-1 ml-2">
-              <i class=" pr-1 bi bi-star-fill" style={{ color: "#e3b341" }}></i>
+              <i
+                className=" pr-1 bi bi-star-fill"
+                style={{ color: "#e3b341" }}
+              ></i>
               Starred
               <Badge className="repos-public-badge ml-2">
                 {repoDetails.stargazers_count}
               </Badge>
-              <i class=" pl-1 bi bi-caret-down-fill"></i>
+              <i className=" pl-1 bi bi-caret-down-fill"></i>
             </p>
           </div>
         </Row>
         <Row className="py-3 repo-details-row-2cont">
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-code"></i> Code
+            <i className="bi bi-code"></i> Code
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-plus-circle-dotted"></i> Issues
+            <i className="bi bi-plus-circle-dotted"></i> Issues
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-git"></i> Pull requests
+            <i className="bi bi-git"></i> Pull requests
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-play-circle"></i> Actions
+            <i className="bi bi-play-circle"></i> Actions
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-kanban"></i> Projects
+            <i className="bi bi-kanban"></i> Projects
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-book"></i> Wiki
+            <i className="bi bi-book"></i> Wiki
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-shield-exclamation"></i> Security
+            <i className="bi bi-shield-exclamation"></i> Security
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-graph-up"></i> Insights
+            <i className="bi bi-graph-up"></i> Insights
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-gear"></i> Settings
+            <i className="bi bi-gear"></i> Settings
           </p>
         </Row>
         <Row>
@@ -114,14 +151,14 @@ function RepoDetails({ userInfo }) {
             <Row className="pb-3 pt-4 justify-content-between align-items-center">
               <div className="d-flex align-items-center">
                 <p className="mb-0 text-light main-branches-p-tag py-1 px-2 mr-2">
-                  <i class="bi bi-git"></i> main
-                  <i class=" pl-1 bi bi-caret-down-fill"></i>
+                  <i className="bi bi-git"></i> {repoDetails.default_branch}
+                  <i className=" pl-1 bi bi-caret-down-fill"></i>
                 </p>
                 <p className="mb-0 text-light main-branches-p-tag-1 py-1 px-2 mr-2">
-                  <i class="bi bi-git"></i> 2 branches
+                  <i className="bi bi-git"></i> 2 branches
                 </p>
                 <p className="mb-0 text-light main-branches-p-tag-1 py-1 px-2 mr-2">
-                  <i class="bi bi-tag"></i> 0 tags
+                  <i className="bi bi-tag"></i> 0 tags
                 </p>
               </div>
               <div className="d-flex align-items-center">
@@ -130,11 +167,11 @@ function RepoDetails({ userInfo }) {
                 </p>
                 <p className="mb-0 text-light main-branches-p-tag py-1 px-3 mr-2">
                   Add file
-                  <i class=" pl-1 bi bi-caret-down-fill"></i>
+                  <i className=" pl-1 bi bi-caret-down-fill"></i>
                 </p>
                 <p className="mb-0 text-light main-branches-p-tag-2 py-1 px-2 mr-2">
                   Code
-                  <i class=" pl-1 bi bi-caret-down-fill"></i>
+                  <i className=" pl-1 bi bi-caret-down-fill"></i>
                 </p>
               </div>
             </Row>
@@ -208,7 +245,12 @@ function RepoDetails({ userInfo }) {
               >
                 Languages
               </h6>
-              <div className="repo-details-languages-color"></div>
+              <div
+                className="repo-details-languages-color"
+                style={{
+                  background: `linear-gradient(to right,  ${color1} 0%, ${color1} 20%, ${color2} 20%, ${color2} 40%, ${color3} 40%,${color3} 100%)`,
+                }}
+              ></div>
               <div className="mt-3 d-flex">
                 <p className="mb-0 text-light mr-3">
                   <i
@@ -217,7 +259,7 @@ function RepoDetails({ userInfo }) {
                       color: "yellow",
                     }}
                   ></i>
-                  JavaScript 75.7%
+                  JavaScript {javaScriptLan}%
                 </p>
                 <p className="mb-0 text-light">
                   <i
@@ -226,7 +268,7 @@ function RepoDetails({ userInfo }) {
                       color: "purple",
                     }}
                   ></i>
-                  CSS 22.2%
+                  CSS {cssLanguagePer}%
                 </p>
               </div>
               <p
@@ -239,7 +281,7 @@ function RepoDetails({ userInfo }) {
                     color: "orange",
                   }}
                 ></i>
-                HTML 2.1%
+                HTML {htmlLanguage}%
               </p>
             </Row>
           </Col>
