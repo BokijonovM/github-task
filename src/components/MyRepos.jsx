@@ -6,6 +6,7 @@ import { Form } from "react-bootstrap";
 function MyRepos() {
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchName, setSearchName] = useState("");
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -33,6 +34,7 @@ function MyRepos() {
             <Form.Control
               type="text"
               className="search-or-jump-repo shadow-none"
+              onChange={e => setSearchName(e.target.value)}
               placeholder="Find a repository..."
             />
           </Form.Group>
@@ -59,9 +61,19 @@ function MyRepos() {
       {isLoading ? (
         <Loader />
       ) : (
-        repos.map(repo => {
-          return <SingleRepo repos={repo} />;
-        })
+        repos
+          .filter(value => {
+            if (searchName === "") {
+              return value;
+            } else if (
+              value.name.toLowerCase().includes(searchName.toLowerCase())
+            ) {
+              return value;
+            }
+          })
+          .map(repo => {
+            return <SingleRepo repos={repo} />;
+          })
       )}
     </div>
   );

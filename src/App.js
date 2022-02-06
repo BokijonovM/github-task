@@ -49,7 +49,7 @@ function App() {
           </Row>
           <Row>
             <Routes>
-              <Route path="/" element={<RepoDetails />} />
+              <Route path="/:name" element={<RepoDetails />} />
             </Routes>
           </Row>
         </Container>

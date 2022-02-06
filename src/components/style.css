@@ -95,7 +95,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 30px;
+  margin-left: 40px;
+}
+.edit-profile-btn {
+  width: 300px;
+  border: 0.2px solid grey;
+}
+.edit-profile-btn:hover {
+  border: 0.2px solid rgb(218, 218, 218);
+  background-color: rgb(71, 71, 71);
 }
 /* repos */
 

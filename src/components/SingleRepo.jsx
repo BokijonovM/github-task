@@ -7,7 +7,7 @@ function SingleRepo({ repos }) {
     <div className="d-flex justify-content-between single-repo-main-repo-div py-5">
       <div>
         <div className="d-flex align-items-center">
-          <a className="repo-name-a" href="/">
+          <a className="repo-name-a" href={"BokijonovM/" + repos.name}>
             {repos.name}
           </a>
           <Badge className="px-2 repos-public-badge ml-2">Public</Badge>
@@ -18,7 +18,7 @@ function SingleRepo({ repos }) {
             {repos.language}
           </p>
           <p style={{ color: "grey", fontSize: "12px" }} className="mb-0">
-            {format(parseISO(repos.updated_at), "MMMM do yyyy | HH:mm")}
+            Updated {format(parseISO(repos.updated_at), "MMMM do yyyy | HH:mm")}
           </p>
         </div>
       </div>

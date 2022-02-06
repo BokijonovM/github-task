@@ -14,7 +14,7 @@ function LeftInfo({ userInfo }) {
           <h3 className="text-light mb-n1">{userInfo.name}</h3>
           <h4 className="text-light mb-0">{userInfo.login}</h4>
           <h6 className="text-light mb-0 my-3">{userInfo.bio}</h6>
-          <Button className="" variant="dark">
+          <Button className="edit-profile-btn" size="sm" variant="dark">
             Edit profile
           </Button>
           <p className="py-2 text-light">
