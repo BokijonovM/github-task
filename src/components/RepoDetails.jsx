@@ -103,7 +103,7 @@ function RepoDetails({ userInfo }) {
             <i class="bi bi-shield-exclamation"></i> Security
           </p>
           <p className="mb-0 text-light mr-4">
-            <i class="bi bi-activity"></i> Insights
+            <i class="bi bi-graph-up"></i> Insights
           </p>
           <p className="mb-0 text-light mr-4">
             <i class="bi bi-gear"></i> Settings
@@ -111,9 +111,138 @@ function RepoDetails({ userInfo }) {
         </Row>
         <Row>
           <Col md={8}>
-            <Row></Row>
+            <Row className="pb-3 pt-4 justify-content-between align-items-center">
+              <div className="d-flex align-items-center">
+                <p className="mb-0 text-light main-branches-p-tag py-1 px-2 mr-2">
+                  <i class="bi bi-git"></i> main
+                  <i class=" pl-1 bi bi-caret-down-fill"></i>
+                </p>
+                <p className="mb-0 text-light main-branches-p-tag-1 py-1 px-2 mr-2">
+                  <i class="bi bi-git"></i> 2 branches
+                </p>
+                <p className="mb-0 text-light main-branches-p-tag-1 py-1 px-2 mr-2">
+                  <i class="bi bi-tag"></i> 0 tags
+                </p>
+              </div>
+              <div className="d-flex align-items-center">
+                <p className="mb-0 text-light main-branches-p-tag py-1 px-3 mr-2">
+                  Go to file
+                </p>
+                <p className="mb-0 text-light main-branches-p-tag py-1 px-3 mr-2">
+                  Add file
+                  <i class=" pl-1 bi bi-caret-down-fill"></i>
+                </p>
+                <p className="mb-0 text-light main-branches-p-tag-2 py-1 px-2 mr-2">
+                  Code
+                  <i class=" pl-1 bi bi-caret-down-fill"></i>
+                </p>
+              </div>
+            </Row>
+            <Row className="repo-files-row-main-cont">
+              <Col className="repo-files-row-main-cont-1st-row">
+                <img
+                  className="repo-details-user-img"
+                  src={userInfo.avatar_url}
+                  alt="image"
+                />
+                <p className="mb-0 ml-3 text-light">{userInfo.login}</p>
+              </Col>
+            </Row>
           </Col>
-          <Col md={4}></Col>
+          <Col md={4}>
+            <Row className="justify-content-between pt-4 ml-3">
+              <h6 className="mb-0 text-light">About</h6>
+              <i className="bi bi-gear text-light"></i>
+            </Row>
+            <Row className="justify-content-between ml-3 py-3">
+              <p className="mb-0 text-light">{repoDetails.description}</p>
+            </Row>
+            <Row className="flex-column ml-3 rswf-row-cont pb-3">
+              <p className="mb-1" style={{ textAlign: "start", color: "grey" }}>
+                <i className="bi bi-book mr-3"></i> Readme
+              </p>
+              <p className="mb-1" style={{ textAlign: "start", color: "grey" }}>
+                <i className="bi bi-star mr-3"></i>{" "}
+                {repoDetails.stargazers_count} star
+              </p>
+              <p className="mb-1" style={{ textAlign: "start", color: "grey" }}>
+                <i className="bi bi-eye mr-3"></i> {repoDetails.watchers_count}{" "}
+                watching
+              </p>
+              <p className="mb-1" style={{ textAlign: "start", color: "grey" }}>
+                <i className="bi bi-git mr-3"></i> {repoDetails.forks} forks
+              </p>
+            </Row>
+            <Row className="flex-column pt-4 ml-3 rswf-row-cont pb-3">
+              <h6
+                style={{ textAlign: "start" }}
+                className="mb-0 pb-4 text-light"
+              >
+                Releases
+              </h6>
+              <p className="mb-0" style={{ textAlign: "start", color: "grey" }}>
+                No releases published
+              </p>
+              <a style={{ textAlign: "start" }} href="/">
+                Create a new release
+              </a>
+            </Row>
+            <Row className="flex-column pt-4 ml-3 rswf-row-cont pb-3">
+              <h6
+                style={{ textAlign: "start" }}
+                className="mb-0 pb-4 text-light"
+              >
+                Packages
+              </h6>
+              <p className="mb-0" style={{ textAlign: "start", color: "grey" }}>
+                No packages published
+              </p>
+              <a style={{ textAlign: "start" }} href="/">
+                Create a new packages
+              </a>
+            </Row>
+            <Row className="ml-3 pt-4 flex-column pb-5">
+              <h6
+                style={{ textAlign: "start" }}
+                className="mb-0 pb-4 text-light"
+              >
+                Languages
+              </h6>
+              <div className="repo-details-languages-color"></div>
+              <div className="mt-3 d-flex">
+                <p className="mb-0 text-light mr-3">
+                  <i
+                    className="bi bi-circle-fill mr-2"
+                    style={{
+                      color: "yellow",
+                    }}
+                  ></i>
+                  JavaScript 75.7%
+                </p>
+                <p className="mb-0 text-light">
+                  <i
+                    className="bi bi-circle-fill mr-2"
+                    style={{
+                      color: "purple",
+                    }}
+                  ></i>
+                  CSS 22.2%
+                </p>
+              </div>
+              <p
+                className="mb-0 text-light mt-2"
+                style={{ textAlign: "start" }}
+              >
+                <i
+                  className="bi bi-circle-fill mr-2"
+                  style={{
+                    color: "orange",
+                  }}
+                ></i>
+                HTML 2.1%
+              </p>
+            </Row>
+          </Col>
         </Row>
       </Container>
     </div>

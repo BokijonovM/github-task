@@ -20,3 +20,55 @@
 .repo-details-row-2cont p:hover {
   cursor: pointer;
 }
+.main-branches-p-tag {
+  background-color: rgb(78, 78, 78);
+  border-radius: 5px;
+}
+.main-branches-p-tag-1:hover {
+  background-color: rgb(78, 78, 78);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main-branches-p-tag-2 {
+  background-color: green;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.rswf-row-cont {
+  border-bottom: 0.2px solid grey;
+}
+.repo-files-row-main-cont {
+  background-color: transparent;
+  border: 1px solid #252b33;
+  border-radius: 5px;
+  height: 100px;
+}
+.repo-details-user-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.repo-files-row-main-cont-1st-row {
+  background-color: #161b22;
+  width: 100%;
+  border-radius: 5px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.repo-details-languages-color {
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    to right,
+    yellow 0%,
+    yellow 75%,
+    purple 75%,
+    purple 98%,
+    orange 98%,
+    orange 100%
+  );
+  border-radius: 32px;
+}
