@@ -95,12 +95,85 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 30px;
+  margin-left: 40px;
+}
+.edit-profile-btn {
+  width: 300px;
+  border: 0.2px solid grey;
+}
+.edit-profile-btn:hover {
+  border: 0.2px solid rgb(218, 218, 218);
+  background-color: rgb(71, 71, 71);
 }
 /* repos */
 
 .repos-main-div {
   width: 100%;
-  height: 100vh;
   background-color: #0d1117;
+}
+.repo-name-a {
+  font-size: 20px;
+  font-weight: 600;
+  color: #498ad3 !important;
+}
+.repos-public-badge {
+  background-color: transparent !important;
+  border-radius: 99px;
+  color: rgb(150, 150, 150);
+  border: 1px solid rgb(66, 66, 66);
+}
+.single-repo-main-repo-div {
+  border-bottom: 1px solid rgb(66, 66, 66);
+}
+.star-starred {
+  background-color: #21262d;
+  border: 1px solid rgb(139, 139, 139);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.arrow-down-fill-div {
+  background-color: #21262d;
+  border: 1px solid rgb(139, 139, 139);
+  border-left: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.bi-star-fill-style {
+  color: rgb(206, 206, 206);
+  font-size: 14px !important;
+}
+.circle-yellow-language {
+  width: 15px;
+  height: 15px;
+  background: yellow;
+  border-radius: 50%;
+}
+.search-or-jump-repo {
+  background-color: black;
+  color: white;
+  border: 0.2px solid #3a3e42;
+  border-radius: 8px;
+}
+
+.search-or-jump-repo:focus {
+  background-color: black;
+  border: 0.5px solid grey;
+}
+.tlsn-4-div {
+  background-color: #21262d;
+  border: 0.2px solid grey;
+  border-radius: 5px;
+}
+.tlsn-4-div-last {
+  background-color: #238636;
+  border-radius: 5px;
+}
+.repos-search-div {
+  border-bottom: 1px solid rgb(66, 66, 66);
 }
