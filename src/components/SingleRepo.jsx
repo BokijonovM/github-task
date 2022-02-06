@@ -7,7 +7,7 @@ function SingleRepo({ repos }) {
     <div className="d-flex justify-content-between single-repo-main-repo-div py-5">
       <div>
         <div className="d-flex align-items-center">
-          <a className="repo-name-a" href={"BokijonovM/" + repos.name}>
+          <a className="repo-name-a" href={repos.name}>
             {repos.name}
           </a>
           <Badge className="px-2 repos-public-badge ml-2">Public</Badge>

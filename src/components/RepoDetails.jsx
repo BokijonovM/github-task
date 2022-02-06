@@ -16,7 +16,8 @@ function RepoDetails() {
         );
         if (res.ok) {
           let data = await res.json();
-          console.log("Details:", data);
+          setRepoDetails(data);
+          setIsLoading(false);
         } else {
           console.log("Fetch details error!");
         }
@@ -27,7 +28,7 @@ function RepoDetails() {
     fetchDetails();
   }, []);
 
-  return <div></div>;
+  return <div>{repoDetails.name}</div>;
 }
 
 export default RepoDetails;

@@ -2,14 +2,12 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from "./components/MyNavbar";
 import MyFooter from "./components/MyFooter";
-import MyMain from "./components/MyMain";
-import MyHeader from "./components/MyHeader";
-import LeftInfo from "./components/LeftInfo";
 import { Row, Col, Container } from "react-bootstrap";
-import MyRepos from "./components/MyRepos";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RepoDetails from "./components/RepoDetails";
+import MainPage from "./MainPage";
+import MainRepo from "./MainRepo";
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -33,26 +31,12 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <MyNavbar userInfo={userInfo} />
-        <MyHeader userInfo={userInfo} />
 
-        <Container>
-          <Row>
-            <Col className="p-0" md={4}>
-              <LeftInfo userInfo={userInfo} />
-            </Col>
-            <Col className="p-0" md={8}>
-              <Routes>
-                <Route path="/" element={<MyMain />} />
-                <Route path="/repositories" element={<MyRepos />} />
-              </Routes>
-            </Col>
-          </Row>
-          <Row>
-            <Routes>
-              <Route path="/:name" element={<RepoDetails />} />
-            </Routes>
-          </Row>
-        </Container>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/repositories" element={<MainRepo />} />
+          <Route path="/:name" element={<RepoDetails />} />
+        </Routes>
 
         <MyFooter />
       </div>

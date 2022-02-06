@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 function MyMain() {
-  return <div></div>;
+  return <div>yoo</div>;
 }
 
 export default MyMain;
