@@ -1,11 +1,38 @@
 .main-footer-div {
   width: 100%;
-  height: 80px;
+  height: 100px;
   background-color: #0d1117;
   display: flex;
   align-items: center;
   align-content: center;
-  justify-content: center;
+  justify-content: flex-start;
+  border-top: 1px solid rgb(66, 66, 66);
+}
+@media (max-width: 970px) {
+  .main-footer-div {
+    flex-direction: column;
+  }
+}
+.footer-links-main-div {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 770px) {
+  .footer-links-main-div {
+    flex-direction: column;
+  }
+}
+.github-2022-footer-span {
+  display: flex;
+  color: grey;
+  align-items: center;
+}
+.github-2022-footer-span img {
+  width: 20px;
+  fill: grey !important;
+}
+.footer-links-main-div a {
+  margin-right: 20px;
 }
 .navbar-nav-1 {
   background-color: #161b22;
