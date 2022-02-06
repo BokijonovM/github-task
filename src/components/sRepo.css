@@ -1,0 +1,22 @@
+.repo-details-ufs-header-right {
+  display: flex;
+  align-items: center;
+  background-color: #21262d;
+  border-radius: 5px;
+  color: white;
+  border: 0.2px solid grey;
+}
+.repo-details-ufs-header-right-fork {
+  display: flex;
+  align-items: center;
+  background-color: #21262d;
+  border-radius: 5px;
+  color: rgb(78, 77, 77);
+  border: 0.2px solid grey;
+}
+.repo-details-row-2cont {
+  border-bottom: 0.2px solid rgb(78, 78, 78);
+}
+.repo-details-row-2cont p:hover {
+  cursor: pointer;
+}

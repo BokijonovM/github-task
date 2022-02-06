@@ -39,7 +39,7 @@ function App() {
             path="/repositories"
             element={<MainRepo userInfo={userInfo} />}
           />
-          <Route path="/:name" element={<MainDetails />} />
+          <Route path="/:name" element={<MainDetails userInfo={userInfo} />} />
         </Routes>
 
         <MyFooter />

@@ -6,7 +6,7 @@ import logo1 from "./assets/copyright.svg";
 function MyFooter() {
   return (
     <div>
-      <div className="main-footer-div px-4">
+      <div className="main-footer-div px-4 mt-3">
         <div className="d-flex align-items-center">
           <img className="footer=logo-github" src={logo} alt="logo" />
           <span className="pl-2 github-2022-footer-span pr-5">

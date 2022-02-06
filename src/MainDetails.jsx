@@ -1,10 +1,10 @@
 import React from "react";
 import RepoDetails from "./components/RepoDetails";
 
-function MainDetails() {
+function MainDetails({ userInfo }) {
   return (
     <div>
-      <RepoDetails />
+      <RepoDetails userInfo={userInfo} />
     </div>
   );
 }
