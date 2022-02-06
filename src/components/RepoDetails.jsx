@@ -38,6 +38,7 @@ function RepoDetails({ userInfo }) {
         if (res.ok) {
           let data = await res.json();
           setLanguagesUsed(data);
+          console.log(data);
         } else {
           console.log("Fetch details error!");
         }
@@ -50,7 +51,9 @@ function RepoDetails({ userInfo }) {
   }, []);
 
   const dataLan =
-    languagesUsed.CSS + languagesUsed.HTML + languagesUsed.JavaScript;
+    (languagesUsed.CSS || 0) +
+    (languagesUsed.HTML || 0) +
+    (languagesUsed.JavaScript || 0);
 
   function round(num, decimalPlaces = 0) {
     num = Math.round(num + "e" + decimalPlaces);
@@ -248,7 +251,11 @@ function RepoDetails({ userInfo }) {
               <div
                 className="repo-details-languages-color"
                 style={{
-                  background: `linear-gradient(to right,  ${color1} 0%, ${color1} 20%, ${color2} 20%, ${color2} 40%, ${color3} 40%,${color3} 100%)`,
+                  background: `linear-gradient(to right,  ${color1} 0%, ${color1} ${javaScriptLan}%, ${color2} ${javaScriptLan}%, ${color2} ${
+                    javaScriptLan + cssLanguagePer
+                  }%, ${color3} ${
+                    javaScriptLan + cssLanguagePer
+                  }%,${color3} 100%)`,
                 }}
               ></div>
               <div className="mt-3 d-flex">
