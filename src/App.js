@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import RepoDetails from "./components/RepoDetails";
 import MainPage from "./MainPage";
 import MainRepo from "./MainRepo";
+import MainDetails from "./MainDetails";
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -33,9 +34,12 @@ function App() {
         <MyNavbar userInfo={userInfo} />
 
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/repositories" element={<MainRepo />} />
-          <Route path="/:name" element={<RepoDetails />} />
+          <Route path="/" element={<MainPage userInfo={userInfo} />} />
+          <Route
+            path="/repositories"
+            element={<MainRepo userInfo={userInfo} />}
+          />
+          <Route path="/:name" element={<MainDetails />} />
         </Routes>
 
         <MyFooter />
