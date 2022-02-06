@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loader from "./Loader";
 import { useParams } from "react-router-dom";
+import "./sRepo.css";
 
 function RepoDetails() {
   const params = useParams();
