@@ -39,6 +39,25 @@
   width: 100%;
   height: 70px;
 }
+
+.navbar-input-dropdown-cont {
+  width: 40vw;
+  padding: 0;
+  background-color: #0d1117;
+  color: white;
+  border: 0.2px solid grey;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.navbar-input-dropdown-item {
+  color: white;
+  border-bottom: 0.2px solid grey;
+}
+
+.navbar-input-dropdown-item:hover {
+  background-color: #1f6feb;
+}
+
 .search-or-jump {
   padding-right: 100px;
   background-color: black;
@@ -203,4 +222,31 @@
 }
 .repos-search-div {
   border-bottom: 1px solid rgb(66, 66, 66);
+}
+/* main page */
+
+.my-main-main-div-cont {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  position: relative;
+}
+.my-main-main-div-cont-col {
+  width: 30vw;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.my-main-main-div-cont-row {
+  border: 0.3px solid grey;
+  border-radius: 10px;
+  flex-direction: column;
+}
+.repo-description-main-page {
+  color: white;
+  text-align: start;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }

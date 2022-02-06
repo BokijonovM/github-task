@@ -1,8 +1,58 @@
-import React from "react";
-import { Nav, Navbar, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Nav, Navbar, Form, Dropdown, FormControl } from "react-bootstrap";
 import Logo from "./assets/github.svg";
 
 function MyNavbar({ userInfo }) {
+  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+    // <a
+    //   href=""
+    //   ref={ref}
+    //   onClick={e => {
+    //     e.preventDefault();
+    //     onClick(e);
+    //   }}
+    // >
+    //   {children}
+    // </a>
+    <Form.Group className="ml-3">
+      <Form.Control
+        ref={ref}
+        onClick={e => {
+          e.preventDefault();
+          onClick(e);
+        }}
+        size="sm"
+        type="text"
+        className="search-or-jump shadow-none"
+        placeholder="Search or jump to..."
+      />
+      {children}
+    </Form.Group>
+  ));
+
+  // forwardRef again here!
+  // Dropdown needs access to the DOM of the Menu to measure it
+  const CustomMenu = React.forwardRef(
+    ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
+      const [value, setValue] = useState("");
+
+      return (
+        <div
+          ref={ref}
+          style={style}
+          className={className}
+          aria-labelledby={labeledBy}
+        >
+          <ul className="list-unstyled">
+            {React.Children.toArray(children).filter(
+              child =>
+                !value || child.props.children.toLowerCase().startsWith(value)
+            )}
+          </ul>
+        </div>
+      );
+    }
+  );
   return (
     <div>
       <Navbar className="navbar-nav-1" expand="lg">
@@ -11,14 +61,33 @@ function MyNavbar({ userInfo }) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Form.Group className="ml-3">
+          {/* <Form.Group className="ml-3">
             <Form.Control
               size="sm"
               type="text"
               className="search-or-jump shadow-none"
               placeholder="Search or jump to..."
             />
-          </Form.Group>
+          </Form.Group> */}
+
+          <Dropdown>
+            <Dropdown.Toggle
+              as={CustomToggle}
+              id="dropdown-custom-components"
+            ></Dropdown.Toggle>
+
+            <Dropdown.Menu
+              className="navbar-input-dropdown-cont"
+              as={CustomMenu}
+            >
+              <a href="/">
+                <Dropdown.Item className="py-2 d-flex align-items-center navbar-input-dropdown-item">
+                  <i class="bi bi-journal-bookmark-fill mr-3"></i>
+                  Red
+                </Dropdown.Item>
+              </a>
+            </Dropdown.Menu>
+          </Dropdown>
 
           <Nav className="mr-auto">
             <Nav.Link className="pmie-texts-nav ml-4" href="#home">
