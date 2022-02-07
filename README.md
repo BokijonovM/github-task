@@ -31,7 +31,7 @@ Open [http://localhost:3000/repositories](http://localhost:3000/repositories) to
 ![Design and Development](https://github.com/BokijonovM/github-task/blob/main/images/2Github-Clone.png)
 
 
-# 📌Image of the repos page
+# 📌Image of the repo details page
 Click any repo name that you want see details of it.
 <br/>
 <br/>
