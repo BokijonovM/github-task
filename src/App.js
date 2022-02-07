@@ -9,6 +9,7 @@ import RepoDetails from "./components/RepoDetails";
 import MainPage from "./MainPage";
 import MainRepo from "./MainRepo";
 import MainDetails from "./MainDetails";
+import SearchUsers from "./components/SearchUsers";
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -40,6 +41,7 @@ function App() {
             element={<MainRepo userInfo={userInfo} />}
           />
           <Route path="/:name" element={<MainDetails userInfo={userInfo} />} />
+          <Route path="/search" element={<SearchUsers />} />
         </Routes>
 
         <MyFooter />
