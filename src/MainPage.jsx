@@ -2,7 +2,6 @@ import React from "react";
 import LeftInfo from "./components/LeftInfo";
 import MyMain from "./components/MyMain";
 import { Row, Col, Container } from "react-bootstrap";
-import { useEffect, useState } from "react";
 import MyHeader from "./components/MyHeader";
 
 function MainPage({ userInfo }) {

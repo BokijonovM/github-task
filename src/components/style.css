@@ -43,6 +43,7 @@
 .navbar-input-dropdown-cont {
   width: 40vw;
   padding: 0;
+  /* background-color: red; */
   background-color: #0d1117;
   color: white;
   border: 0.2px solid grey;
@@ -55,9 +56,16 @@
 }
 
 .navbar-input-dropdown-item:hover {
+  color: white;
+  text-decoration: none;
   background-color: #1f6feb;
 }
-
+.jump-to-item-needed {
+  background-color: transparent;
+  border: 0.2px solid #0d1117;
+  color: #0d1117;
+  border-radius: 5px;
+}
 .search-or-jump {
   padding-right: 100px;
   background-color: black;
@@ -232,7 +240,7 @@
   position: relative;
 }
 .my-main-main-div-cont-col {
-  width: 30vw;
+  width: 100%;
   margin-top: 20px;
   align-items: center;
   justify-content: space-between;

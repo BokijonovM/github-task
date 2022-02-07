@@ -79,10 +79,13 @@ function RepoDetails({ userInfo }) {
             <h4 className="mb-0">
               <a href="/">{userInfo.login}</a>
             </h4>
-            <i
+            {/* <i
               className="bi bi-slash-lg"
               style={{ color: "grey", fontSize: "18px" }}
-            ></i>
+            ></i> */}
+            <span className="px-1" style={{ fontSize: "22px", color: "grey" }}>
+              /
+            </span>
             <h4 className="mb-0">
               <a href={repoDetails.name}>{repoDetails.name}</a>
             </h4>
