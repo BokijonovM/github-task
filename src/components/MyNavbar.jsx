@@ -3,25 +3,24 @@ import { Nav, Navbar, Form, Dropdown, FormControl } from "react-bootstrap";
 import Logo from "./assets/github.svg";
 
 function MyNavbar({ userInfo }) {
-  const [searchName, setSearchName] = useState("");
-  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-    <Form.Group className="ml-3">
-      <Form.Control
-        ref={ref}
-        onClick={e => {
-          e.preventDefault();
-          onClick(e);
-        }}
-        size="sm"
-        type="text"
-        className="search-or-jump shadow-none"
-        placeholder="Search or jump to..."
-        onChange={e => setSearchName(e.target.value)}
-        value={searchName}
-      />
-      {children}
-    </Form.Group>
-  ));
+  const CustomToggle = React.forwardRef(
+    ({ children, onClick, onChange }, ref) => (
+      <Form.Group className="ml-3">
+        <Form.Control
+          ref={ref}
+          onClick={e => {
+            e.preventDefault();
+            onClick(e);
+          }}
+          size="sm"
+          type="text"
+          className="search-or-jump shadow-none"
+          placeholder="Search or jump to..."
+        />
+        {children}
+      </Form.Group>
+    )
+  );
 
   const CustomMenu = React.forwardRef(
     ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
@@ -63,22 +62,20 @@ function MyNavbar({ userInfo }) {
               className="navbar-input-dropdown-cont"
               as={CustomMenu}
             >
-              <a href="/repositories" style={{ textDecoration: "none" }}>
-                <Dropdown.Item
-                  href="/repositories"
-                  className="py-2 d-flex align-items-center navbar-input-dropdown-item"
-                >
-                  <i class="bi bi-journal-bookmark-fill mr-3"></i>
-                  {searchName}
-                  <span className="ml-auto jump-to-item-needed px-3">
-                    Jump to
-                    <i
-                      class="bi bi-arrow-return-left"
-                      style={{ fontSize: "10px" }}
-                    ></i>
-                  </span>
-                </Dropdown.Item>
-              </a>
+              <Dropdown.Item
+                href="/search"
+                className="py-2 d-flex align-items-center navbar-input-dropdown-item"
+              >
+                <i class="bi bi-journal-bookmark-fill mr-3"></i>
+                Search for users
+                <span className="ml-auto jump-to-item-needed px-3">
+                  Jump to
+                  <i
+                    class="bi bi-arrow-return-left"
+                    style={{ fontSize: "10px" }}
+                  ></i>
+                </span>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
 
