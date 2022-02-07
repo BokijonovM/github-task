@@ -3,24 +3,22 @@ import { Nav, Navbar, Form, Dropdown, FormControl } from "react-bootstrap";
 import Logo from "./assets/github.svg";
 
 function MyNavbar({ userInfo }) {
-  const CustomToggle = React.forwardRef(
-    ({ children, onClick, onChange }, ref) => (
-      <Form.Group className="ml-3">
-        <Form.Control
-          ref={ref}
-          onClick={e => {
-            e.preventDefault();
-            onClick(e);
-          }}
-          size="sm"
-          type="text"
-          className="search-or-jump shadow-none"
-          placeholder="Search or jump to..."
-        />
-        {children}
-      </Form.Group>
-    )
-  );
+  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <Form.Group className="ml-3">
+      <Form.Control
+        ref={ref}
+        onClick={e => {
+          e.preventDefault();
+          onClick(e);
+        }}
+        size="sm"
+        type="text"
+        className="search-or-jump shadow-none"
+        placeholder="Search or jump to..."
+      />
+      {children}
+    </Form.Group>
+  ));
 
   const CustomMenu = React.forwardRef(
     ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
